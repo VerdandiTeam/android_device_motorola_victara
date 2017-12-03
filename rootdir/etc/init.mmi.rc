@@ -413,5 +413,5 @@ service esdpll /system/bin/esdpll -w
     group mot_esdfs package_info
     disabled
 
-on property:service.bootanim.exit=1
+on property:sys.boot_completed=1
     trigger enable-low-power
