@@ -92,7 +92,7 @@ on post-fs-data
     chown mot_pwric mot_pwric /sys/module/qpnp_charger/parameters/chrg_timestamp
 
     start batt_health
-    start hvdcp
+    #start hvdcp
 
 on post-fs
     swapon_all fstab.qcom
@@ -118,6 +118,7 @@ service batt_health /system/bin/batt_health
 service hvdcp /system/bin/hvdcp
     class main
     user root
+    disabled
 
 service thermal-com /system/bin/thermal-engine --minimode
     class main
@@ -234,6 +235,7 @@ service adspd /system/bin/adspd /dev/ttyHS3
     socket adspdsock stream 0660 system audio
     user audio
     group audio input diag
+    disabled
 
 service ftmipcd /system/bin/ftmipcd
     user radio
